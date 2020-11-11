@@ -10,6 +10,7 @@ import gather_keys_oauth2 as Oauth2
 import numpy as np
 import pandas as pd 
 import datetime
+import requests as req
 
 
 CLIENT_ID = '22D8D6'
@@ -86,3 +87,12 @@ sleepdf = pd.DataFrame({'State':sval_list,
 sleepdf['Interpreted'] = sleepdf['State'].map({'2':'Awake','3':'Very Awake','1':'Asleep'})
 #sleepdf.to_csv('/Users/Utilizador/Desktop/SLEEPTRAINNER/HealthData/Sleep/sleep'+today+'.csv', columns = ['Time','State','Interpreted'], header=True, index = False)
 sleepdf.to_csv('./sleep'+today+'.csv', columns = ['Time','State','Interpreted'], header=True, index = False)
+
+sleep_data_to_send=fitbit_stats3['summary']
+sleep_data_to_send['date']=fitbit_stats3['sleep'][0]['startTime']
+
+hearts_data_to_send=dict()
+hearts_data_to_send['heartZones']=hearts['activities-heart'][0]['value']['heartRateZones']
+hearts_data_to_send['date']=hearts['activities-heart'][0]['dateTime']
+
+r = req.post('http://localhost:8080/heart',json=hearts_data_to_send)
