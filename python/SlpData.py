@@ -99,3 +99,4 @@ print(stats2)
 print(hearts_data_to_send)
 
 r = req.post('http://localhost:8081/heart',json=hearts_data_to_send)
+r = req.post('http://localhost:8081/sleep',json=sleep_data_to_send)
