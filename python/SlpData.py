@@ -95,8 +95,11 @@ hearts_data_to_send=dict() #send data information
 hearts_data_to_send['heartZones']=stats2['activities-heart'][0]['value']['heartRateZones']
 hearts_data_to_send['date']=stats2['activities-heart'][0]['dateTime']
 
-print(stats2)
-print(hearts_data_to_send)
+#print(stats2)
+#print(hearts_data_to_send)
+print(sleep_data_to_send)
+print(fitbit_stats3)
 
 r = req.post('http://localhost:8081/heart',json=hearts_data_to_send)
+r = req.post('http://localhost:8081/sleep',json=sleep_data_to_send)
 r = req.post('http://localhost:8081/sleep',json=fitbit_stats3)
