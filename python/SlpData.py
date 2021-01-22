@@ -2,7 +2,7 @@
 """
 Created on Mon Nov  5 13:02:15 2018
 
-@author: Utilizador
+@author: Utilizador Francisco Domingues
 """
 
 import fitbit
