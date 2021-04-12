@@ -5,13 +5,13 @@ Created on Mon Nov  5 13:02:15 2018
 @author: Utilizador Francisco Domingues
 """
 
-import fitbit
-import gather_keys_oauth2 as Oauth2
-import numpy as np
-import pandas as pd 
 import datetime
+
+import fitbit
+import pandas as pd
 import requests as req
 
+import gather_keys_oauth2 as Oauth2
 
 CLIENT_ID = '22D8D6'
 CLIENT_SECRET = '29b3078935f44634ff096c209304be84'
